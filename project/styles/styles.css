@@ -1,0 +1,692 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary, button{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body::before {
+    content: "";
+    background-size: cover; /* This will ensure the image covers the entire viewport */
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: blur(8px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Background for the main page*/
+body:not(.enter-ingredients-page)::before {
+    background-image: url('../images/food-main.jpg');
+    background-size: cover;
+}
+/* Background for find recipe page*/
+body.enter-ingredients-page::before {
+    background-image: url('../images/ingredients.jpg'); 
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:root {
+    --light-bg: linear-gradient(to bottom, #ffffff, #f5f5f5);
+    --light-bg-solid: #f5f5f5;
+    --light-bg-transparent: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.85));
+    --light-bg-bottom: linear-gradient(to top, #ffffff, #f5f5f5);
+    --light-text: #333;
+    --dark-bg: linear-gradient(to top, #1a1a1a, #382411);
+    --dark-bg-transparent: linear-gradient(to top, rgba(26, 26, 26, 0.85), rgba(56, 36, 17, 0.85));
+    --dark-text: #f4f4f4;
+    --primary-dark: #2c3e50;
+    --secondary-dark: #34495e;
+    --primary-light: #f5f5f5;
+    --secondary-light: #bdc3c7;
+    --toggle-bg: #382411;
+    --toggle-bg-hover: #1a1208;
+    --lila: #5f1cdb;
+    --transparent-lila-bg: rgba(95, 28, 219, 0.5);
+    --transparent-light-bg: rgba(255, 255, 255, 0.5);
+    --success-color: #24c51c;
+    --failure-color: #d20c0c;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* This will vertically align the items in the center */
+    background: var(--light-bg);
+    padding: 1rem 5%; /* Added horizontal padding for breathing space */
+    text-align: center;
+    position: relative;
+}
+
+.toggle-btn {
+    margin-left: auto; /* This will push the button to the far right */
+    padding: 1rem 2rem; /* Increased horizontal padding for more space */
+    background-color: var(--toggle-bg);
+    color: var(--dark-text);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 0.2em;
+    text-align: center; /* Ensure the text is centered */
+    display: flex; /* Use flex to center the text both vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    font-size: 0.95rem; 
+}
+
+
+.toggle-btn:hover {
+    background-color: var(--toggle-bg-hover);
+}
+
+footer {
+    background: var(--light-bg-bottom);
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+footer p {
+    margin: 1em;
+}
+
+header nav ul, footer nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+nav ul li {
+    display: flex;
+    vertical-align: middle;  /* This ensures that inline elements are aligned in the middle */
+    align-items: stretch;
+}
+
+header nav a{
+    padding: 1em 2em 1em 2em;
+}
+
+header nav a, footer, button {
+    font-family: 'Mooli', sans-serif;
+    text-decoration: none;
+    color: var(--light-text);
+    transition: background-color 1s ease, color 1s ease;
+    border: none;
+    border-radius: 0.2em;
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+    vertical-align: center;
+}
+
+footer, button {
+    padding: 1em 1em;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70vh;
+    padding-left: 5%;
+}
+
+
+#home h1, #home p {
+    font-family: 'Donis', sans-serif;
+    font-weight: bold;
+    color: var(--dark-text);
+    text-align: left;
+    width: fit-content;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0, 0.8);
+}
+
+#home p {
+    margin-top: 1em;
+    font-size: x-large;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+span {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: var(--lila);
+}
+
+header nav a:hover, footer nav a:hover, button:hover {
+    background-color: var(--secondary-light);
+}
+
+[data-theme="dark"] {
+    transition: background-color 2s ease, color 2s ease;
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] header, [data-theme="dark"] footer {
+    transition: background-color 2s ease, color 2s ease;
+    background: var(--dark-bg);
+}
+
+[data-theme="dark"] header nav a, [data-theme="dark"] footer p, [data-theme="dark"] button {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] .toggle-btn{
+    transition: background-color 1s ease, color 1s ease;
+    background-color: var(--lila);
+}
+
+[data-theme="dark"] header nav a:hover, [data-theme="dark"] .toggle-btn:hover {
+    transition: background-color 1s ease, color 1s ease;
+    background-color: var(--primary-light);
+    color: var(--light-text);
+}
+
+/* Widget styles */
+#food-widget {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+#ingredient-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#ingredient-form label {
+    margin-bottom: 0.5rem;
+}
+
+#ingredient-form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+#ingredient-form button {
+    padding: 0.5rem;
+    background-color: var(--transparent-lila-bg);
+    color: var(--dark-text);
+    border: none;
+    cursor: pointer;
+}
+
+#ingredient-form button:hover {
+    background-color: var(--toggle-bg-hover);
+}
+
+body.dark-theme #ingredient-form button {
+    background-color: var(--lila);
+    color: var(--dark-text);
+}
+
+body.dark-theme #ingredient-form button:hover {
+    background-color: var(--toggle-bg-hover);
+}
+/* Hero Section Styles */
+#hero {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: var(--light-text);
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 5px rgba(202, 102, 203, 0.8);
+}
+
+#hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 5px rgba(165, 27, 128, 0.8);
+}
+
+#hero button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background: var( --transparent-lila-bg);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#hero button:hover {
+    background-color: var(--transparent-lila-bg)
+}
+body.dark-theme #hero {
+    color: var(--dark-text);
+}
+
+body.dark-theme #hero button {
+    background-color: var(--transparent-light-bg);
+}
+
+body.dark-theme #hero button:hover {
+    background-color: var(--transparent-lila-bg);
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    text-align: center;
+    font-family: 'Donis', sans-serif;
+}
+
+#about .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background: var(--dark-bg-transparent);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#about h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: var(--dark-text);
+}
+
+#about h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: var(--dark-text);
+}
+
+#about p {
+    font-size: 1.5em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+    color: var(--dark-text);
+}
+
+
+#about p, #about h1, #about h2 {
+    text-shadow: 1px 1px 5px rgb(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] #about .content {
+    background: var(--dark-bg-transparent);
+    color: var(--dark-text);
+}
+
+.contact-page header, .contact-page footer {
+    background: var(--light-bg);
+}
+
+.contact-page header nav a, .contact-page footer p {
+    color: var(--light-text);
+}
+
+.contact-page [data-theme="dark"] header, .contact-page [data-theme="dark"] footer {
+    background: var(--dark-bg);
+}
+
+.contact-page [data-theme="dark"] header nav a, .contact-page [data-theme="dark"] footer p {
+    color: var(--dark-text);
+}
+
+#contactSection, #contactInfo {
+    margin: 2% auto;
+    padding: 2em;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 90vh;
+    color: var(--light-text);
+}
+
+#contactSection h2, #contactInfo h3 {
+    font-family: 'Donis', sans-serif;
+    font-size: x-large;
+    margin-bottom: 1em;
+    color: var(--light-text);
+    transition: color 3s ease;
+}
+
+#contactSection p, #contactInfo p {
+    font-family: 'Donis', sans-serif;
+    margin-bottom: 1em;
+    line-height: 1.5;
+    color: var(--light-text);
+    transition: color 3s ease;
+}
+
+#contactSection {
+    background: var(--light-bg);
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    resize: vertical;
+    max-height: 50vh;
+}
+
+#contactForm input, #contactForm textarea {
+    padding: 1em;
+    border-radius: 5px;
+}
+
+#contactForm button {
+    padding: 1em 1em;
+    color: var(--dark-text);
+    background: var(--dark-bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+[data-theme="dark"] #contactSection {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] #contactSection p, [data-theme="dark"] #contactSection h2 {
+    color: var(--dark-text);
+}
+
+[data-theme="dark"] #contactForm input, [data-theme="dark"] #contactForm textarea {
+    color: var(--light-text);
+}
+
+[data-theme="dark"] #contactForm button {
+    background: var(--lila);
+    color: var(--dark-text);
+}
+
+
+#recipeSuggestion {
+    width: 95%;
+    max-width: 85%;
+    margin: 1% auto;
+    padding: 1%;
+    background: var(--light-bg), var(--light-bg-transparent);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: background-color 1s ease;
+}
+
+[data-theme="dark"] #recipeSuggestion {
+    background: var(--dark-bg), var(--dark-bg-transparent);
+    color: var(--dark-text);
+}
+
+.paper {
+    background: var(--light-bg), var(--light-bg-transparent);
+    overflow-y: auto;
+    width: 95%;
+    max-height: 55vh;
+    margin: 1% auto;
+    padding: 1em;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: background-color 3s ease, color 3s ease;
+    font-family: 'Donis', sans-serif;
+}
+
+.paper h2 {
+    font-size: xx-large;
+}
+
+.paper h3 {
+    color: var(--secondary-dark);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.paper h4 {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.paper ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 1em;
+}
+
+.paper li {
+    margin-bottom: 0.5rem;
+}
+
+.paper p {
+    margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .paper {
+    background: var(--dark-bg), var(--dark-bg-transparent);
+    color: var(--dark-text);
+    box-shadow: 0px 0px 20px var(--lila);
+}
+
+[data-theme="dark"] #recipeSuggestion {
+    background: var(--dark-bg), var(--dark-bg-transparent);
+    color: var(--dark-text);
+    transition: background-color 3s ease, color 3s ease;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.menu-icon span.close-icon {
+    display: none;
+}
+
+
+.loader {
+    border-top: 4px solid var(--lila); 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingIndicator p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#loadingIndicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .toggle-btn {
+        display: none;
+    }
+    .menu-icon {
+        z-index: 1002;
+        display: block; 
+        cursor: pointer;
+        position: fixed;
+        top: 2.5rem;
+        right: 1rem;
+        width: 38px; 
+        height: 38px; 
+        color: var(--dark-text);
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        text-align: center; 
+        line-height: 38px;
+    }
+
+    .menu-icon::before {
+        content: '\2630';
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    .menu-icon.active::before {
+        content: '\2715';
+        font-size: 1.2rem;
+    }
+
+    header nav ul {
+        z-index: 1000;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 20vh;
+        height: 100%;
+        padding-top: 0;
+        color: var(--light-text);
+        background-color: rgba(4, 4, 4, 0.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 1s ease;
+    }
+
+    header nav ul li a {
+        color: var(--dark-text);
+    }
+
+    header nav ul.active {
+        right: 0;
+    }
+
+    header nav ul li {
+        margin: 1rem 0;
+        z-index: 1001;
+        width: 100%;
+        box-shadow: 
+        0 -5px 10px -5px rgba(255, 255, 255, 0.8), /* Top shadow */
+        0 5px 10px -5px rgba(255, 255, 255, 0.8); /* Bottom shadow */
+        background-color: rgb(0, 0, 0, 0.8);
+    }
+
+    .nav-links {
+        transition: transform 0.3s;
+        position: fixed;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+        height: 100vh;
+        width: 30vh;
+        background: var(--light-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links.active {
+        transform: translateX(0); 
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.5rem;
+    }
+
+    #home, #hero, #about, #contactSection {
+        padding: 1rem;
+    }
+
+    #contactForm input, #contactForm textarea {
+        width: 90%;
+        font-size: 1rem; 
+    }
+
+    #contactForm button {
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
+    }
+
+    .paper {
+        padding: 1rem;
+        width: 90%;
+        max-height: 60vh;
+    }
+    
+}

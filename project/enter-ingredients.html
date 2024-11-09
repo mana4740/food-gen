@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Mooli&family=Open+Sans:wght@300&family=Pacifico&family=Quicksand:wght@300&family=Roboto+Mono:wght@300&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,900&display=swap"
+    rel="stylesheet">
+
+  <title>Enter Ingredients - Food Widget</title>
+</head>
+
+<body class="enter-ingredients-page">
+  <header>
+    <nav>
+      <div class="menu-icon">
+        <span class="close-icon"></span>
+    </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="enter-ingredients.html">Find Recipe</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="toggle-btn">Dark Mode</button>
+  </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <h1>Discover Recipes from Your Favorite Ingredients</h1>
+      <p>Enter your ingredients and let Food Widget craft a personalized recipe for you.</p>
+  
+    
+    <!-- Widget container -->
+     <div id="food-widget"></div>
+    <!-- Loading Indicator -->
+     <div id="loadingIndicator" style="display: none;">
+      <div class="loader"></div>
+      <p>Generating Recipe...</p>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <p>&copy; 2024 Food Widget</p>
+
+  </footer>
+
+<!-- JavaScript files -->
+<script src="javascript/menuToggler.js"></script>
+<script src="javascript/themeToggler.js"></script>
+<script src="javascript/searchWidget.js"></script>
+
+</body>
+
+</html>
